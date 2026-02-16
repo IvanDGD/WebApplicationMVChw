@@ -1,0 +1,29 @@
+﻿@model List<Recipe>
+
+<h2>Recipes</h2>
+
+<a href="/Recipes/Create">Create Recipe</a>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>Ingredients</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Title</td>
+                <td>@r.CreatedAt</td>
+                <td>@r.Ingredients.Count</td>
+                <td>
+                    <a href="/Recipes/Edit/@r.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

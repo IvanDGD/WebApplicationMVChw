@@ -1,0 +1,42 @@
+﻿@model Recipe
+
+<h2>@(Model.Id == 0 ? "Create Recipe" : "Edit Recipe")</h2>
+
+<form method="post" action="@(Model.Id == 0 ? "/Recipes/Create" : "/Recipes/Edit")">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <p>
+        <input type="text" name="Title" value="@Model.Title" placeholder="Title" />
+    </p>
+
+    <p>
+        <textarea name="Instructions" placeholder="Instructions">@Model.Instructions</textarea>
+    </p>
+
+    <p>
+        <label>
+            <input type="checkbox" name="IsVerifiedByAdmin" value="true" @(Model.IsVerifiedByAdmin ? "checked" : "") />
+            Verified
+        </label>
+    </p>
+
+    <h4>Ingredients</h4>
+
+    @for (int i = 0; i < Model.Ingredients.Count; i++)
+    {
+        <p>
+            <input name="Ingredients[@i].Name" value="@Model.Ingredients[i].Name" placeholder="Name" />
+            <input name="Ingredients[@i].Quantity" value="@Model.Ingredients[i].Quantity" placeholder="Qty" size="5" />
+            <input name="Ingredients[@i].Unit" value="@Model.Ingredients[i].Unit" placeholder="Unit" size="5" />
+            <input name="Ingredients[@i].CaloriesPerUnit" value="@Model.Ingredients[i].CaloriesPerUnit" placeholder="Calories" size="5" />
+        </p>
+    }
+
+    <p>
+        <button type="submit" name="actionType" value="add">Add Ingredient</button>
+        <button type="submit" name="actionType" value="remove">Remove Last</button>
+        <button type="submit" name="actionType" value="save">Save</button>
+    </p>
+
+</form>

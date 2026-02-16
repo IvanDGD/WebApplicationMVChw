@@ -1,0 +1,23 @@
+﻿@model List<Participant>
+
+<h2>🎅 Secret Santa</h2>
+
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    <div style="margin-bottom: 15px;">
+        <strong>@Model[i].Name</strong>
+
+        <button onclick="showRecipient(@i)">Get Name</button>
+
+        <span id="result-@i" style="display:none; margin-left:10px;">
+            — Give present to: <b>@Model[i].Recipient</b>
+        </span>
+    </div>
+}
+
+<script>
+    function showRecipient(index) {
+        document.getElementById("result-" + index).style.display = "inline";
+    }
+</script>
