@@ -1,0 +1,101 @@
+﻿@model MatrixViewModel
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@functions {
+    string RowText(double[] arr, int r, int n)
+    {
+        var parts = new string[n];
+        for (var c = 0; c < n; c++)
+            parts[c] = arr[r * n + c].ToString();
+        return string.Join(" ", parts);
+    }
+
+    string Border(int r, int n, bool open)
+    {
+        if (r == 0) return open ? "[" : "]";
+        if (r == n - 1) return open ? "[" : "]";
+        return open ? "|" : "|";
+    }
+}
+
+@{
+    var n = Model.Size;
+    var mid = n / 2;
+
+    var sizeItems = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "3", Text = "3x3" },
+        new SelectListItem { Value = "6", Text = "6x6" },
+        new SelectListItem { Value = "9", Text = "9x9" }
+    };
+
+    var opItems = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "+", Text = "+" },
+        new SelectListItem { Value = "*", Text = "*" }
+    };
+}
+
+<h2>Матрицы</h2>
+
+@using (Html.BeginForm("Index", "Matrix", FormMethod.Post))
+{
+    <div>
+        Размер: @Html.DropDownListFor(m => m.Size, sizeItems)
+        Операция: @Html.DropDownListFor(m => m.Op, opItems)
+        <button type="submit">Посчитать</button>
+    </div>
+
+    <br />
+
+    <b>A</b>
+    <table border="1">
+        @for (var r = 0; r < n; r++)
+        {
+            <tr>
+                @for (var c = 0; c < n; c++)
+                {
+                    var idx = r * n + c;
+                    <td>
+                        @Html.TextBox($"A[{idx}]", Model.A[idx])
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+    <br />
+
+    <b>B</b>
+    <table border="1">
+        @for (var r = 0; r < n; r++)
+        {
+            <tr>
+                @for (var c = 0; c < n; c++)
+                {
+                    var idx = r * n + c;
+                    <td>
+                        @Html.TextBox($"B[{idx}]", Model.B[idx])
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.ShowResult)
+{
+    <h3>Результат</h3>
+    <pre>
+    @for (var r = 0; r < n; r++)
+    {
+            var L = Border(r, n, true);
+            var R = Border(r, n, false);
+
+            var opStr = r == mid ? $" {Model.Op} " : "   ";
+            var eqStr = r == mid ? " = " : "   ";
+
+            @($"{L} {RowText(Model.A, r, n)} {R}{opStr}{L} {RowText(Model.B, r, n)} {R}{eqStr}{L} {RowText(Model.R, r, n)} {R}\n")
+    }
+        </pre>
+}

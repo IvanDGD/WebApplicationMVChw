@@ -1,0 +1,27 @@
+﻿@model List<Product>
+
+<h2>List:</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>Ingredients</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Description</td>
+                <td>@p.Price</td>
+                <td>
+                    <a asp-controller="OnlineShop" asp-action="Edit" asp-route-id="@p.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
