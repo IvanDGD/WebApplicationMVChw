@@ -1,0 +1,66 @@
+﻿@model OnlineBookShop.Models.Book
+
+<h1>@Model.Title</h1>
+
+<p><b>Author:</b> @Model.Author</p>
+<p><b>Genre:</b> @Model.Genre</p>
+<p><b>Price:</b> @Model.Price</p>
+
+<hr />
+
+<h3>Images</h3>
+
+@if (Model.Images != null && Model.Images.Count > 0)
+{
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        @foreach (var img in Model.Images)
+        {
+            <img src="@img.Url" alt="book image"
+                 style="width:160px; height:auto; border-radius:10px;" />
+        }
+    </div>
+}
+else
+{
+    <p>No images</p>
+}
+
+<hr />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<h3>Add comment</h3>
+<form asp-action="AddComment" method="post">
+    <input type="hidden" name="bookId" value="@Model.Id" />
+
+    <div class="form-group">
+        <label>Your name</label>
+        <input name="name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Comment</label>
+        <textarea name="text" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Send</button>
+</form>
+
+<hr />
+
+<h3>Comments</h3>
+
+@if (Model.Comments != null && Model.Comments.Count > 0)
+{
+    @foreach (var c in Model.Comments.OrderByDescending(x => x.Date))
+    {
+        <div style="border:1px solid #ddd; padding:10px; border-radius:10px; margin-bottom:10px;">
+            <b>@c.Name</b> <small>@c.Date.ToString("dd.MM.yyyy HH:mm")</small>
+            <div>@c.Text</div>
+        </div>
+    }
+}
+else
+{
+    <p>No comments yet.</p>
+}
