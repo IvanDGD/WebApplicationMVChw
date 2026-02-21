@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.3.11505.172 d18.3
+VisualStudioVersion = 18.3.11505.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationMVChw", "WebApplicationMVChw\WebApplicationMVChw.csproj", "{5F66A601-8D59-4C05-BDFF-36164B0C9928}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBookShop", "OnlineBookShop\OnlineBookShop.csproj", "{017D8CB4-3325-4A9E-AA25-10D9F4520725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserValidation", "UserValidation\UserValidation.csproj", "{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{017D8CB4-3325-4A9E-AA25-10D9F4520725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{017D8CB4-3325-4A9E-AA25-10D9F4520725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{017D8CB4-3325-4A9E-AA25-10D9F4520725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
