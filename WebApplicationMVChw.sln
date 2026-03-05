@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineBookShop", "OnlineBoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserValidation", "UserValidation\UserValidation.csproj", "{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthTaskManager", "AuthTaskManager\AuthTaskManager.csproj", "{CB30F00D-4DC9-4B16-B314-DA0604FD6093}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E439EE4-95A0-4CA2-9A58-5B95964FA63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB30F00D-4DC9-4B16-B314-DA0604FD6093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB30F00D-4DC9-4B16-B314-DA0604FD6093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB30F00D-4DC9-4B16-B314-DA0604FD6093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB30F00D-4DC9-4B16-B314-DA0604FD6093}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

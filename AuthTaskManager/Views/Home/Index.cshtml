@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-4">Task Manager</h1>
+            <p class="lead">Manage your tasks efficiently with our simple and intuitive task manager.</p>
+            
+            <div class="mt-5">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p>Welcome back, <strong>@User.Identity.Name</strong>!</p>
+                    <a href="@Url.Action("Index", "Notes")" class="btn btn-primary btn-lg">Go to My Tasks</a>
+                }
+                else
+                {
+                    <p>Get started by creating an account or logging in.</p>
+                    <div class="gap-2 d-md-flex justify-content-md-center">
+                        <a href="@Url.Action("Register", "Account")" class="btn btn-primary btn-lg">Register</a>
+                        <a href="@Url.Action("Login", "Account")" class="btn btn-secondary btn-lg">Login</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
